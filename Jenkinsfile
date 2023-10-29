@@ -5,19 +5,33 @@
 // DECLARATIVE PIPELINE
 
 pipeline {
+	agent any
 	stages{
 
 stage('Build') {
+	steps{
 		echo "Build"
+
+	}
 	}
 	stage('Unit Test') {
+		
+		steps{
 		echo "Unit-Test"
+
+		}
 	}
 	stage('Integration test'){
+	
+	steps{
 		echo "Intregation-Test"
+
 	}
 	}
-	always{
+	}
+
+	post{
+always{
 		echo "Always run"
 	}
 	success{
@@ -26,5 +40,7 @@ stage('Build') {
 	failure{
 		echo "Failure run"
 	}
+	}
+	
 	
 }
